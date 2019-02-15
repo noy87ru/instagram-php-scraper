@@ -81,6 +81,12 @@ class Account extends AbstractModel
     protected $isVerified = false;
 
     /**
+     * true if verified by Instagram as celebrity
+     * @var boolean
+     */
+    protected $isBusinessAccount = false;
+
+    /**
      * @var bool
      */
     protected $isLoaded = false;
@@ -200,6 +206,14 @@ class Account extends AbstractModel
     }
 
     /**
+     * @return bool
+     */
+    public function isBusinessAccount()
+    {
+        return $this->isBusinessAccount;
+    }
+
+    /**
      * @param $value
      * @param $prop
      * @param $array
@@ -241,8 +255,8 @@ class Account extends AbstractModel
             case 'is_private':
                 $this->isPrivate = (bool)$value;
                 break;
-            case 'is_verified':
-                $this->isVerified = (bool)$value;
+            case 'is_business_account':
+                $this->isBusinessAccount = (bool)$value;
                 break;
         }
     }
